@@ -15,11 +15,15 @@ namespace Eval.UnitTest
                 .GetOddNumbers(new int[] { 1, 2, 3, 6, 7, 9, 12, 16, 17 })
                 .ToList();
 
-            Assert.IsTrue(odds.Contains(1));
-            Assert.IsTrue(odds.Contains(3));
-            Assert.IsTrue(odds.Contains(7));
-            Assert.IsTrue(odds.Contains(9));
-            Assert.IsTrue(odds.Contains(17));
+            //Avoid Multiple Assert and combining the range.
+            //We can also try collection assert and enumerate....
+            Assert.IsTrue(odds.SequenceEqual(new List<int> { 1,3,7,9,17 }));
+    
+            //Assert.IsTrue(odds.Contains(1));
+            //Assert.IsTrue(odds.Contains(3));
+            //Assert.IsTrue(odds.Contains(7));
+            //Assert.IsTrue(odds.Contains(9));
+            //Assert.IsTrue(odds.Contains(17));
         }
 
         [TestMethod]
